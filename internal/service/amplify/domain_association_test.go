@@ -182,6 +182,7 @@ func testAccDomainAssociation_certificateSettings(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, names.AttrDomainName, domainName),
 					resource.TestCheckResourceAttr(resourceName, "certificate_settings.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, "certificate_settings.0.type", "AMPLIFY_MANAGED"),
+					resource.TestCheckNoResourceAttr(resourceName, "certificate_settings.0.custom_certificate_arn"),
 					resource.TestCheckResourceAttrSet(resourceName, "certificate_settings.0.certificate_verification_dns_record"),
 				),
 			},
